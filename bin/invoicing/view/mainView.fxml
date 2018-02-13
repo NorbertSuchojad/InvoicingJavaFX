@@ -12,10 +12,11 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnMyCompanyData" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#showMyCompanyData" prefHeight="125.0" prefWidth="225.0" text="DANE TWOJEJ FIRMY" />
-      <Button fx:id="btnOtherCompanyData" layoutX="325.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#showOtherCompanyData" prefHeight="125.0" prefWidth="225.0" text="DANE KONTRAHENTA" />
-      <Button fx:id="btnNewInvoice" layoutX="50.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#prepareNewInvoice" prefHeight="125.0" prefWidth="225.0" text="WYSTAW FAKTURĘ" />
-      <Button fx:id="btnShowInvoicing" layoutX="325.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#showInvoices" prefHeight="125.0" prefWidth="225.0" text="WYSTAWIONE FAKTURY" />
+      <Button fx:id="btnMyCompanyData" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#showMyCompanyData" prefHeight="125.0" prefWidth="150.0" text="DANE TWOJEJ FIRMY" />
+      <Button fx:id="btnOtherCompanyData" layoutX="225.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#showOtherCompanyData" prefHeight="125.0" prefWidth="150.0" text="DANE KONTRAHENTÓW" />
+      <Button fx:id="btnAddNewService" layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#showAddNewService" prefHeight="125.0" prefWidth="150.0" text="DODAJ USŁUGĘ" />
+      <Button fx:id="btnNewInvoice" layoutX="50.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#prepareNewInvoice" prefHeight="125.0" prefWidth="237.0" text="WYSTAW FAKTURĘ" />
+      <Button fx:id="btnShowInvoicing" layoutX="312.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#showInvoices" prefHeight="125.0" prefWidth="236.0" text="WYSTAWIONE FAKTURY" />
       <Button fx:id="btnExit" layoutX="490.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#exitAction" prefHeight="20.0" prefWidth="100.0" text="Wyjdź" />
    </children>
 </AnchorPane>

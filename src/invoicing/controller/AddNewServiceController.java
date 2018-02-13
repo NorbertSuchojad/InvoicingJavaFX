@@ -1,5 +1,7 @@
 package invoicing.controller;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -38,7 +40,7 @@ public class AddNewServiceController {
     private Button btnSave1;
 
     @FXML
-    void back(MouseEvent event) {
+    void back(MouseEvent event) throws IOException {
     	Stage stage = new Stage();
     	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/mainView.fxml"));
     	Scene scene = new Scene(parent);
@@ -46,7 +48,6 @@ public class AddNewServiceController {
     	stage.setTitle("FakturyITflow");
     	stage.show();
     	((Node)event.getSource()).getScene().getWindow().hide();
-    }
     }
 
     @FXML

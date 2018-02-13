@@ -1,5 +1,6 @@
 package invoicing.controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableCell;
@@ -31,6 +36,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ShowInvoicesController {
@@ -70,6 +76,20 @@ public class ShowInvoicesController {
 
 	@FXML
 	private Button btn_select;
+	
+    @FXML
+    private Button btnBack;
+
+    @FXML
+    void back(MouseEvent event) throws IOException {
+    	Stage stage = new Stage();
+    	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/mainView.fxml"));
+    	Scene scene = new Scene(parent);
+    	stage.setScene(scene);
+    	stage.setTitle("FakturyITflow");
+    	stage.show();
+    	((Node)event.getSource()).getScene().getWindow().hide();
+    }
 
 	// obiekt połączenia z bazą danych
 	private DBConnector db;

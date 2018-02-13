@@ -27,6 +27,9 @@ public class MainController {
 
     @FXML
     private Button btnOtherCompanyData;
+    
+    @FXML
+    private Button btnAddNewService;
 
     @FXML
     private Button btnNewInvoice;
@@ -43,14 +46,31 @@ public class MainController {
     }
 
     @FXML
-    void prepareNewInvoice(MouseEvent event) {
-
+    void prepareNewInvoice(MouseEvent event) throws IOException {
+    	Stage stage = new Stage();
+    	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/newInvoiceView.fxml"));
+    	Scene scene = new Scene(parent);
+    	stage.setScene(scene);
+    	stage.setTitle("FakturyITflow");
+    	stage.show();
+    	((Node)event.getSource()).getScene().getWindow().hide();
+    }
+    
+    @FXML
+    void showAddNewService(MouseEvent event) throws IOException {
+    	Stage stage = new Stage();
+    	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/addNewServiceView.fxml"));
+    	Scene scene = new Scene(parent);
+    	stage.setScene(scene);
+    	stage.setTitle("FakturyITflow");
+    	stage.show();
+    	((Node)event.getSource()).getScene().getWindow().hide();
     }
 
     @FXML
     void showInvoices(MouseEvent event) throws IOException {
     	Stage stage = new Stage();
-    	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/ShowInvoicesView.fxml"));
+    	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/showInvoicesView.fxml"));
     	Scene scene = new Scene(parent);
     	stage.setScene(scene);
     	stage.setTitle("FakturyITflow");

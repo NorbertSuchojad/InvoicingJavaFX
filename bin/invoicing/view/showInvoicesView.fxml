@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TableController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicing.controller.ShowInvoicesController">
    <children>
       <TableView fx:id="table_view" editable="true" layoutX="40.0" layoutY="148.0" prefHeight="348.0" prefWidth="820.0">
         <columns>
@@ -54,5 +54,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="btnBack" layoutX="359.0" layoutY="527.0" mnemonicParsing="false" onMouseClicked="#back" text="Wróć" />
    </children>
 </AnchorPane>
