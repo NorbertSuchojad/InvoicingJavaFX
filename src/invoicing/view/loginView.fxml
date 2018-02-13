@@ -17,7 +17,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btn_show" layoutX="252.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#btnShow" prefHeight="20.0" prefWidth="31.0" text="show">
+      <Button fx:id="btn_show" layoutX="279.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#btnShow" prefHeight="20.0" prefWidth="41.0" text="show">
          <font>
             <Font size="8.0" />
          </font>

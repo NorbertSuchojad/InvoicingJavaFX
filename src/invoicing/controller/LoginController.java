@@ -10,12 +10,17 @@ import java.sql.SQLException;
 import invoicing.database.DBConnector;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 /**
  * @author NorbertSuchojad
  *
@@ -56,14 +61,14 @@ public class LoginController {
     	if (rs.next()) {
     		
     		// jeśli użytkownik jest w bazie - pojawia się kolejne okno
-    		
-//    		Stage stage = new Stage();
-//        	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/*******View.fxml"));
-//        	Scene scene = new Scene(parent);
-//        	stage.setScene(scene);
-//        	stage.setTitle("Tabela");
-//        	stage.show();
-//        	((Node)event.getSource()).getScene().getWindow().hide();
+   		
+    		Stage stage = new Stage();
+        	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/mainView.fxml"));
+        	Scene scene = new Scene(parent);
+        	stage.setScene(scene);
+        	stage.setTitle("FakturyITflow");
+        	stage.show();
+        	((Node)event.getSource()).getScene().getWindow().hide();
     		
     	} else {
     		

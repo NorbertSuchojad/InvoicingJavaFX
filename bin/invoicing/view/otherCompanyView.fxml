@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicing.controller.MyCompanyController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicing.controller.OtherCompanyController">
    <children>
       <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0" text="WPROWADŹ DANE">
          <font>
@@ -49,16 +49,16 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboFirma" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Wybierz firmę" />
-      <TextField fx:id="tfCompanyName" layoutX="200.0" layoutY="80.0" prefHeight="45.0" prefWidth="300.0" promptText="Wprowadz nazwę firmy" />
-      <TextField fx:id="tfNIP" layoutX="200.0" layoutY="130.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź NIP firmy" />
-      <TextField fx:id="tfREGON" layoutX="200.0" layoutY="160.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź REGON" />
-      <TextField fx:id="tfAdress" layoutX="200.0" layoutY="190.0" prefHeight="20.0" prefWidth="300.0" promptText="Podaj adres firmy" />
-      <TextField fx:id="tfPostCode" layoutX="200.0" layoutY="220.0" prefHeight="20.0" prefWidth="300.0" promptText="Podaj kod pocztowy" />
-      <TextField fx:id="tfPost" layoutX="200.0" layoutY="250.0" prefHeight="20.0" prefWidth="300.0" promptText="Poczta" />
-      <TextField fx:id="tfBankAccount" layoutX="200.0" layoutY="280.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź nr konta" />
+      <ComboBox fx:id="comboOtherFirma" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Wybierz firmę" />
+      <TextField fx:id="tfOtcherCompanyName" layoutX="200.0" layoutY="80.0" prefHeight="45.0" prefWidth="300.0" promptText="Wprowadz nazwę firmy" />
+      <TextField fx:id="tfOtherNIP" layoutX="200.0" layoutY="130.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź NIP firmy" />
+      <TextField fx:id="tfOtherREGON" layoutX="200.0" layoutY="160.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź REGON" />
+      <TextField fx:id="tfOtherAdress" layoutX="200.0" layoutY="190.0" prefHeight="20.0" prefWidth="300.0" promptText="Podaj adres firmy" />
+      <TextField fx:id="tfOtherPostCode" layoutX="200.0" layoutY="220.0" prefHeight="20.0" prefWidth="300.0" promptText="Podaj kod pocztowy" />
+      <TextField fx:id="tfOtherPost" layoutX="200.0" layoutY="250.0" prefHeight="20.0" prefWidth="300.0" promptText="Poczta" />
+      <TextField fx:id="tfOtherBankAccount" layoutX="200.0" layoutY="280.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź nr konta" />
       <Button fx:id="btnSaveAndClose" layoutX="440.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#saveAndClose" prefHeight="20.0" prefWidth="150.0" text="Zapisz i zamknij" />
       <Button fx:id="btnSave" layoutX="280.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="20.0" prefWidth="150.0" text="Zapisz" />
-      <Button fx:id="btnSave1" layoutX="120.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="150.0" text="Powrót" />
+      <Button fx:id="btnBack" layoutX="120.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="150.0" text="Powrót" />
    </children>
 </AnchorPane>
