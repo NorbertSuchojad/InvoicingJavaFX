@@ -12,24 +12,6 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicing.controller.ShowInvoicesController">
    <children>
-      <TableView fx:id="table_view" editable="true" layoutX="40.0" layoutY="148.0" prefHeight="348.0" prefWidth="820.0">
-        <columns>
-          <TableColumn fx:id="col_id" prefWidth="43.0" text="Id" />
-          <TableColumn fx:id="col_name" prefWidth="91.0" text="Name" />
-            <TableColumn fx:id="col_lastname" prefWidth="118.0" text="Last name" />
-            <TableColumn fx:id="col_mail" prefWidth="95.0" text="Mail" />
-            <TableColumn fx:id="col_phone" prefWidth="91.0" text="Phone" />
-            <TableColumn prefWidth="75.0" text="Programming">
-               <columns>
-                  <TableColumn fx:id="col_java" prefWidth="48.0" text="Java" />
-                  <TableColumn fx:id="col_python" prefWidth="65.0" text="Python" />
-                  <TableColumn fx:id="col_other" prefWidth="87.0" text="Other" />
-               </columns>
-            </TableColumn>
-            <TableColumn fx:id="col_language" prefWidth="97.0" text="Language" />
-            <TableColumn fx:id="col_course" prefWidth="84.0" text="Course" />
-        </columns>
-      </TableView>
       <Button fx:id="btn_select" layoutX="769.0" layoutY="527.0" mnemonicParsing="false" onMouseClicked="#onSelect" prefHeight="33.0" prefWidth="93.0" text="Select">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -55,5 +37,22 @@
          </font>
       </Button>
       <Button fx:id="btnBack" layoutX="359.0" layoutY="527.0" mnemonicParsing="false" onMouseClicked="#back" text="Wróć" />
+      <TableView fx:id="table_view" editable="true" layoutX="40.0" layoutY="148.0" prefHeight="348.0" prefWidth="820.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="40.0" text="Nr" />
+            <TableColumn maxWidth="240.0" prefWidth="240.0" text="Data">
+               <columns>
+                  <TableColumn fx:id="col_java" text="usługi" />
+                  <TableColumn fx:id="col_python" text="wystawienia" />
+               </columns>
+            </TableColumn>
+            <TableColumn fx:id="col_lastname" prefWidth="120.0" text="Nazwa odbiorcy" />
+          <TableColumn fx:id="col_name" prefWidth="260.0" text="Usługa" />
+            <TableColumn fx:id="col_mail" prefWidth="40.0" text="J.m." />
+            <TableColumn fx:id="col_phone" prefWidth="40.0" text="Ilość" />
+            <TableColumn fx:id="col_language" minWidth="0.0" text="Cena" />
+            <TableColumn fx:id="col_course" text="Wartość" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
