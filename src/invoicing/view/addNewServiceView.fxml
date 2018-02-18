@@ -29,14 +29,14 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboService" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Wybierz" />
-      <TextField fx:id="tfServiceName" alignment="TOP_LEFT" layoutX="225.0" layoutY="80.0" prefHeight="45.0" prefWidth="325.0" promptText="Wprowadz nazwę usługi" />
-      <TextField fx:id="tfSalesTyp" layoutX="225.0" layoutY="130.0" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną jednostkę sprzedaży" />
-      <TextField fx:id="tfSalesValue" layoutX="225.0" layoutY="160.0" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną ilość" />
-      <TextField fx:id="tfSalesPrice" layoutX="225.0" layoutY="190.0" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną cenę" />
+      <ComboBox fx:id="comboServices" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Wybierz" />
+      <TextField fx:id="tfServiceName" alignment="TOP_LEFT" layoutX="225.0" layoutY="80.0" onKeyPressed="#enterPressed" prefHeight="45.0" prefWidth="325.0" promptText="Wprowadz nazwę usługi" />
+      <TextField fx:id="tfSalesTyp" layoutX="225.0" layoutY="130.0" onKeyPressed="#enterPressed" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną jednostkę sprzedaży" />
+      <TextField fx:id="tfSalesValue" layoutX="225.0" layoutY="160.0" onKeyPressed="#enterPressed" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną ilość" />
+      <TextField fx:id="tfSalesPrice" layoutX="225.0" layoutY="190.0" onKeyPressed="#enterPressed" prefHeight="20.0" prefWidth="325.0" promptText="Wprowadź domyślną cenę" />
       <Button fx:id="btnSaveAndClose" layoutX="430.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#saveAndClose" prefHeight="20.0" prefWidth="150.0" text="Zapisz i zamknij" />
       <Button fx:id="btnSave" layoutX="270.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="20.0" prefWidth="150.0" text="Zapisz" />
-      <Button fx:id="btnSave1" layoutX="110.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="150.0" text="Powrót" />
+      <Button fx:id="btnBack" layoutX="110.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="20.0" prefWidth="150.0" text="Powrót" />
       <Label layoutX="50.0" layoutY="190.0" prefHeight="18.0" prefWidth="175.0" text="Domyślna cena">
          <font>
             <Font size="16.0" />

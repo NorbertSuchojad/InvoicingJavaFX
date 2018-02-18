@@ -18,6 +18,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -48,20 +50,23 @@ public class LoginController {
     static boolean flag = true;
     
     DBConnector db;
-
+    
     @FXML
-    void btnLogin(MouseEvent event) throws SQLException, IOException {
+    void enterPressed(KeyEvent event) throws IOException, SQLException {
+    	if (event.getCode().equals(KeyCode.ENTER)) {
+    		loginAction(event);
+		}
+    }
+    
+    private void loginAction(KeyEvent event) throws IOException, SQLException {
     	Connection connection = db.connection();
     	String sql = "Select * from user where login=? and pass=?;";
     	PreparedStatement ps = connection.prepareStatement(sql);
     	ps.setString(1, tf_login.getText());
     	ps.setString(2, tf_pass.isVisible() ? tf_pass.getText():pf_pass.getText());
     	ResultSet rs = ps.executeQuery();
-    	
     	if (rs.next()) {
-    		
     		// jeśli użytkownik jest w bazie - pojawia się kolejne okno
-   		
     		Stage stage = new Stage();
         	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/mainView.fxml"));
         	Scene scene = new Scene(parent);
@@ -69,16 +74,45 @@ public class LoginController {
         	stage.setTitle("FakturyITflow");
         	stage.show();
         	((Node)event.getSource()).getScene().getWindow().hide();
-    		
     	} else {
-    		
     		Alert error = new Alert(AlertType.ERROR);
     		error.setHeaderText("Wrong login or password");
     		error.setContentText("Please enter valid login details");
     		error.setTitle("Error!");
     		error.showAndWait();
     	}
+		
+	}
+
+	@FXML
+    void btnLogin(MouseEvent event) throws SQLException, IOException {
+    	loginAction(event);
     }
+
+	private void loginAction(MouseEvent event) throws SQLException, IOException {
+		Connection connection = db.connection();
+    	String sql = "Select * from user where login=? and pass=?;";
+    	PreparedStatement ps = connection.prepareStatement(sql);
+    	ps.setString(1, tf_login.getText());
+    	ps.setString(2, tf_pass.isVisible() ? tf_pass.getText():pf_pass.getText());
+    	ResultSet rs = ps.executeQuery();
+    	if (rs.next()) {
+    		// jeśli użytkownik jest w bazie - pojawia się kolejne okno
+    		Stage stage = new Stage();
+        	Parent parent = FXMLLoader.load(getClass().getResource("/invoicing/view/mainView.fxml"));
+        	Scene scene = new Scene(parent);
+        	stage.setScene(scene);
+        	stage.setTitle("FakturyITflow");
+        	stage.show();
+        	((Node)event.getSource()).getScene().getWindow().hide();
+    	} else {
+    		Alert error = new Alert(AlertType.ERROR);
+    		error.setHeaderText("Wrong login or password");
+    		error.setContentText("Please enter valid login details");
+    		error.setTitle("Error!");
+    		error.showAndWait();
+    	}
+	}
 
     @FXML
     void btnShow(MouseEvent event) {

@@ -218,8 +218,9 @@ public class ShowInvoicesController {
 	private void setTableValue(ResultSet rs) throws SQLException {
 		data.clear();
 		while (rs.next()) {
-			data.add(new Invoices(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-					rs.getBoolean(6), rs.getBoolean(7), rs.getString(8), rs.getString(9), rs.getString(10)));
+			data.add(new Invoices(rs.getId_invoice()));
+					//rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+					//rs.getBoolean(6), rs.getBoolean(7), rs.getString(8), rs.getString(9), rs.getString(10)));
 		}
 
 		table_view.setItems(null);

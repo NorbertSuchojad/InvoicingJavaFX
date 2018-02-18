@@ -49,7 +49,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboFirma" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Wybierz firmę" />
+      <ComboBox fx:id="comboFirma" layoutX="210.0" layoutY="15.0" prefHeight="20.0" prefWidth="370.0" promptText="Nowa firma" />
       <TextField fx:id="tfCompanyName" layoutX="200.0" layoutY="80.0" prefHeight="45.0" prefWidth="300.0" promptText="Wprowadz nazwę firmy" />
       <TextField fx:id="tfNIP" layoutX="200.0" layoutY="130.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź NIP firmy" />
       <TextField fx:id="tfREGON" layoutX="200.0" layoutY="160.0" prefHeight="20.0" prefWidth="300.0" promptText="Wprowadź REGON" />

@@ -6,8 +6,10 @@ package invoicing.controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import invoicing.database.DBConnector;
 import invoicing.model.MyCompany;
@@ -23,6 +25,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -38,10 +42,6 @@ public class MyCompanyController {
 	
     @FXML
     private ComboBox<String> comboFirma;
-    
-    ObservableList<String> optionsComboFirma;
-    
-    ArrayList<String> myCompanies;
 
     @FXML
     private TextField tfCompanyName;
@@ -86,7 +86,6 @@ public class MyCompanyController {
 
     @FXML
     private void save(MouseEvent event) {
-
 		if (isNotCompleted()) {
 			showAlertNotCompleted();
 		} else {
@@ -107,7 +106,7 @@ public class MyCompanyController {
 				ps.setString(7, myCompany.getMy_company_account());
 
 				ps.executeUpdate();
-
+				showAlertSaveComplete();
 				clearAll();
 				
 			} catch (SQLException e) {
@@ -145,19 +144,21 @@ public class MyCompanyController {
 		String bankAccount = tfBankAccount.getText();
 		String postCity = tfPost.getText();
 		String postCode = tfPostCode.getText();
-
 		MyCompany myCompany = new MyCompany(
 											nip, regon, companyName, adress, 
 											postCode, postCity, bankAccount);
 
-
-		
 		return myCompany;
 	}
 
 	@FXML
-    private void saveAndClose(MouseEvent event) {
-    	
+    private void saveAndClose(MouseEvent event) throws IOException {
+		if (isNotCompleted()) {
+			showAlertNotCompleted();
+		} else {
+			save(event);
+    	back(event);
+		}
     }
     
     private boolean isNotCompleted() {
@@ -168,20 +169,52 @@ public class MyCompanyController {
 				|| "".equals(tfPost.getText()) 
 				|| "".equals(tfAdress.getText());
 	}
-    
-    
+     
 	private void showAlertNotCompleted() {
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setHeaderText("Błąd");
-		alert.setContentText("Błąd wyświetlania informacji");
+		alert.setContentText("Nie można kontynuować");
 		alert.setTitle("Należy uzupełnić wszystkie pola!");
 		alert.showAndWait();
 	}
 	
-    public void initialize() {
-		db = new DBConnector();
-    	optionsComboFirma = FXCollections.observableArrayList("Back-end", "Front-end");
-    	comboFirma.setItems(optionsComboFirma);
+	private void showAlertSaveComplete() {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setHeaderText("Sukces!");
+		alert.setContentText("Gratulacje!");
+		alert.setTitle("Poprawnie dodano dane firmy do bazy!");
+		alert.showAndWait();
+	}
+	
+	@FXML
+    void enterPressed(KeyEvent event) throws IOException, SQLException {
+    	if (event.getCode().equals(KeyCode.ENTER)) {
+    		//something
+		}
     }
-
+	
+	public void initialize() throws SQLException  {
+		db = new DBConnector();
+		Connection connection = db.connection();
+		
+		ObservableList<String> optionsComboFirma = null;
+	    List<String> companyNames = new ArrayList<String>();
+	    
+		String selectCompanyName = "SELECT my_company_name FROM my_company ;";
+		PreparedStatement ps = connection.prepareStatement(selectCompanyName);
+	    ResultSet rs = ps.executeQuery();
+		try {
+	        while (rs.next()) {
+	        	companyNames.add(rs.getString("my_company_name"));
+	        }
+	        optionsComboFirma = FXCollections.observableArrayList(companyNames);
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    } finally {
+	        if (connection != null) { 
+	        	connection.close(); 
+	        }
+	    }
+		comboFirma.setItems(optionsComboFirma);
+    }
 }

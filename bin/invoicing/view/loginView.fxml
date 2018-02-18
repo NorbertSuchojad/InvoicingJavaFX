@@ -11,7 +11,7 @@
    <children>
       <TextField fx:id="tf_login" alignment="CENTER" layoutX="102.0" layoutY="47.0" promptText="Login" />
       <TextField fx:id="tf_pass" alignment="TOP_CENTER" layoutX="103.0" layoutY="84.0" prefHeight="25.0" prefWidth="149.0" visible="false" />
-      <PasswordField fx:id="pf_pass" alignment="CENTER" layoutX="103.0" layoutY="85.0" promptText="Password" />
+      <PasswordField fx:id="pf_pass" alignment="CENTER" layoutX="103.0" layoutY="85.0" onKeyPressed="#enterPressed" promptText="Password" />
       <Label layoutX="97.0" layoutY="14.0" text="Enter login and password">
          <font>
             <Font size="14.0" />
@@ -22,7 +22,7 @@
             <Font size="8.0" />
          </font>
       </Button>
-      <Button fx:id="btn_login" layoutX="262.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#btnLogin" prefHeight="25.0" prefWidth="74.0" text="Login" />
+      <Button fx:id="btn_login" layoutX="262.0" layoutY="129.0" mnemonicParsing="false" onKeyPressed="#enterPressed" onMouseClicked="#btnLogin" prefHeight="25.0" prefWidth="74.0" text="Login" />
       <Button fx:id="btn_quit" layoutX="178.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#btnQuit" prefHeight="25.0" prefWidth="74.0" text="Quit" />
    </children>
 </AnchorPane>
